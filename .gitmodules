@@ -1,0 +1,3 @@
+[submodule "pathtracer/pathtracer/3rdParty/GLFW"]
+	path = pathtracer/pathtracer/3rdParty/GLFW
+	url = https://github.com/glfw/glfw
