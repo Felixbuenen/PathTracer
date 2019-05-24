@@ -1,41 +1,28 @@
 #include <iostream>
 
+
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "Window.h"
+
 int main()
 {
-	GLFWwindow* window;
-	
-	/* Initialize the library */
-	if (!glfwInit())
-		return -1;
-
-	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-	if (!window)
+	PathTracer::Window window;
+	if (!window.init(640, 480, "Felix PathTracer"))
 	{
-		glfwTerminate();
-		return -1;
-	}
-
-	/* Make the window's context current */
-	glfwMakeContextCurrent(window);
-
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
+		std::cout << "Failed to init window" << std::endl;
 		return -1;
 	}
 
 	/* Loop until the user closes the window */
-	while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(window.getGlfwWindow()))
 	{
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		/* Swap front and back buffers */
-		glfwSwapBuffers(window);
+		glfwSwapBuffers(window.getGlfwWindow());
 
 		/* Poll for and process events */
 		glfwPollEvents();
