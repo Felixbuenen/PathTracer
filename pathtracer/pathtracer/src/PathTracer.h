@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Defines.h"
+
 namespace PathTracer {
 
 	class Window;
@@ -17,7 +19,7 @@ namespace PathTracer {
 		Window* m_Window;
 
 		void traceScene(float);
-		void setColor(int index, float* pixels, float); // todo: add color parameter, t weghalen
+		void setColor(int index, float* pixels, Color); 
 	};
 
 }
