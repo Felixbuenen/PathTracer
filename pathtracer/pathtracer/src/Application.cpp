@@ -4,6 +4,7 @@
 #include "glad/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "PathTracer.h"
 #include "Window.h"
 
 int main()
@@ -15,19 +16,9 @@ int main()
 		return -1;
 	}
 
-	/* Loop until the user closes the window */
-	while (!glfwWindowShouldClose(window.getGlfwWindow()))
-	{
-		/* Render here */
-		glClear(GL_COLOR_BUFFER_BIT);
+	PathTracer::PathTracer pathTracer;
+	pathTracer.init(&window);
+	pathTracer.run();
 
-		/* Swap front and back buffers */
-		glfwSwapBuffers(window.getGlfwWindow());
-
-		/* Poll for and process events */
-		glfwPollEvents();
-	}
-
-	glfwTerminate();
 	return 0;
 }
