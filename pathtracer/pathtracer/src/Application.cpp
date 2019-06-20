@@ -6,19 +6,31 @@
 
 #include "PathTracer.h"
 #include "Window.h"
+#include "Objects/Sphere.h"
+#include "Defines.h"
+
+using namespace PathTracer;
 
 int main()
 {
-	PathTracer::Window window;
-	if (!window.init(640, 480, "Felix PathTracer"))
+	Window window;
+	if (!window.init(480, 480, "Felix PathTracer"))
 	{
 		std::cout << "Failed to init window" << std::endl;
 		return -1;
 	}
 
-	PathTracer::PathTracer pathTracer;
-	pathTracer.init(&window);
+	// create objects
+	Sphere* sphere = new Sphere(glm::vec3(0, 0, 10), 2.f, Color(255, 69, 0), 0.f);
+	std::vector<IObject*> objects;
+	objects.push_back(sphere);
+
+	Scene scene(objects);
+
+	::PathTracer::PathTracer pathTracer;
+	pathTracer.init(&window, &scene);
 	pathTracer.run();
 
 	return 0;
 }
+

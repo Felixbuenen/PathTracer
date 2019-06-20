@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Defines.h"
+#include "Scene.h"
 
 namespace PathTracer {
 
@@ -12,14 +12,18 @@ namespace PathTracer {
 		PathTracer() {}
 		~PathTracer();
 
-		void init(Window* window);
+		void init(Window* window, Scene* scene);
 		void run();
 
 	private:
 		Window* m_Window;
+		Scene* m_Scene;
 
-		void traceScene(float);
-		void setColor(int index, float* pixels, Color); 
+		void render(float);
+		void setColor(int index, float* pixels, Color);
+		void updateScreenRay(Ray& ray, int x, int y);
+
+		glm::vec3 p0, p1, p2; // left-up, right-up and left-bottom corner of screen in world space
 	};
 
 }

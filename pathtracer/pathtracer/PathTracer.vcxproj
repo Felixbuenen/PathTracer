@@ -20,12 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3rdParty\glad\src\glad.c" />
+    <ClCompile Include="src\Objects\Sphere.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\PathTracer.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Objects\IObject.h" />
+    <ClInclude Include="src\Objects\Sphere.h" />
+    <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\Defines.h" />
     <ClInclude Include="src\PathTracer.h" />
     <ClInclude Include="src\Window.h" />
