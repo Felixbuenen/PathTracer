@@ -4,6 +4,7 @@
 
 namespace PathTracer {
 
+	class IObject;
 	typedef glm::vec3 Color;
 
 	struct Ray
@@ -13,13 +14,15 @@ namespace PathTracer {
 		float length;
 	};
 
-	/*class Intersection
+	class Intersection
 	{
 	public:
+		Intersection() {}
+
 		IObject* nearestObj;
 		float distance;
 		glm::vec3 normal;
-	};*/
+	};
 
 	const float rayBias = 1e-4f;
 	const int MAX_DEPTH = 8;

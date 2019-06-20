@@ -8,7 +8,7 @@ namespace PathTracer {
 	{
 	public:
 		IObject() {}
-		virtual bool intersect(Ray& ray) const = 0;
+		virtual void intersect(Intersection& outIntersect, Ray& ray) = 0;
 
 		virtual const Color GetColor() const = 0;
 		virtual const float GetEmittance() const = 0;

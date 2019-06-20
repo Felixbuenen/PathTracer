@@ -91,11 +91,11 @@ namespace PathTracer {
 				for(int i; i < maxSamples; i++) { color += m_Scene->trace(); }
 				color /= maxSamples;
 				*/
-				
-				if (i == 320 && j == 240)
+				if (i == 240 && j == 240)
 				{
-					int i = 0;
+					int askjfd = 0;
 				}
+
 				updateScreenRay(ray, i, j);
 				Color color = m_Scene->trace(ray, 0);
 				setColor(index, pixels, color);

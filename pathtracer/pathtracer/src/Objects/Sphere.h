@@ -10,7 +10,7 @@ namespace PathTracer {
 		Sphere(glm::vec3 position, float radius, Color color, float emittance)
 			: m_Pos(position), m_Radius(radius), m_Color(color), m_Emittance(emittance) { }
 		
-		bool intersect(Ray& ray) const override;
+		void intersect(Intersection& outIntersect, Ray& ray) override;
 
 		inline const Color GetColor() const override { return m_Color; };
 		inline const float GetEmittance() const override { return m_Emittance; }

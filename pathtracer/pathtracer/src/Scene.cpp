@@ -20,26 +20,30 @@ namespace PathTracer {
 		}
 
 		// get intersected object
-		IObject* obj = intersect(ray);
-		if (obj == nullptr)
+		Intersection intersection = intersect(ray);
+		IObject* nearestObj = intersection.nearestObj;
+
+		if (!nearestObj)
 		{
 			return Color(0, 0, 0); // TODO: sample skybox
 		}
 
-		Color color = obj->GetColor();
+		Color color = nearestObj->GetColor();
 		return color;
 	}
 
-	IObject* Scene::intersect(Ray& ray) const
+	Intersection Scene::intersect(Ray& ray) const
 	{
+		Intersection intersect;
 		for (auto object : m_Objects) 
 		{
-			if (object->intersect(ray))
+			object->intersect(intersect, ray);
+			if (intersect.nearestObj)
 			{
-				return object;
+				return intersect;
 			}
 		}
 
-		return nullptr;
+		return intersect;
 	}
 }

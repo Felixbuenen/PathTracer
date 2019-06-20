@@ -15,7 +15,7 @@ namespace PathTracer {
 		~Scene();
 
 		Color trace(Ray& ray, int depth) const;
-		IObject* intersect(Ray& ray) const;
+		Intersection intersect(Ray& ray) const;
 
 	private:
 		std::vector<IObject*> m_Objects;
